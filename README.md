@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="https://github.com/liguodongiot/llm-action/blob/main/pic/llm-action-v3.png" >
-</p>
+
 
 
 <p> 
@@ -44,58 +42,6 @@
 
 ## LLM训练
 
-### LLM训练实战
-
-下面汇总了我在大模型实践中训练相关的所有教程。从6B到65B，从全量微调到高效微调（LoRA，QLoRA，P-Tuning v2），再到RLHF（基于人工反馈的强化学习）。
-
-| LLM                         | 预训练/SFT/RLHF...            | 参数     | 教程                                                                                                                                                                                                                     | 代码                                                                                     |
-| --------------------------- | ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| Alpaca                      | full fine-turning             | 7B       | [从0到1复现斯坦福羊驼（Stanford Alpaca 7B）](https://zhuanlan.zhihu.com/p/618321077)                                                                                                                                        | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/alpaca)               |
-| Alpaca(LLaMA)               | LoRA                          | 7B~65B   | 1.[足够惊艳，使用Alpaca-Lora基于LLaMA(7B)二十分钟完成微调，效果比肩斯坦福羊驼](https://zhuanlan.zhihu.com/p/619426866)<br>2. [使用 LoRA 技术对 LLaMA 65B 大模型进行微调及推理](https://zhuanlan.zhihu.com/p/632492604)    | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/alpaca-lora)          |
-| BELLE(LLaMA/Bloom)          | full fine-turning             | 7B       | 1.[基于LLaMA-7B/Bloomz-7B1-mt复现开源中文对话大模型BELLE及GPTQ量化](https://zhuanlan.zhihu.com/p/618876472) <br> 2. [BELLE(LLaMA-7B/Bloomz-7B1-mt)大模型使用GPTQ量化后推理性能测试](https://zhuanlan.zhihu.com/p/621128368) | N/A                                                                                      |
-| ChatGLM                     | LoRA                          | 6B       | [从0到1基于ChatGLM-6B使用LoRA进行参数高效微调](https://zhuanlan.zhihu.com/p/621793987)                                                                                                                                      | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/chatglm-lora)         |
-| ChatGLM                     | full fine-turning/P-Tuning v2 | 6B       | [使用DeepSpeed/P-Tuning v2对ChatGLM-6B进行微调](https://zhuanlan.zhihu.com/p/622351059)                                                                                                                                     | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/chatglm)              |
-| Vicuna(LLaMA)               | full fine-turning             | 7B       | [大模型也内卷，Vicuna训练及推理指南，效果碾压斯坦福羊驼](https://zhuanlan.zhihu.com/p/624012908)                                                                                                                            | N/A                                                                                      |
-| OPT                         | RLHF                          | 0.1B~66B | 1.[一键式 RLHF 训练 DeepSpeed Chat（一）：理论篇](https://zhuanlan.zhihu.com/p/626159553) <br> 2. [一键式 RLHF 训练 DeepSpeed Chat（二）：实践篇](https://zhuanlan.zhihu.com/p/626214655)                                 | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/deepspeedchat)        |
-| MiniGPT-4(LLaMA)            | full fine-turning             | 7B       | [大杀器，多模态大模型MiniGPT-4入坑指南](https://zhuanlan.zhihu.com/p/627671257)                                                                                                                                             | N/A                                                                                      |
-| Chinese-LLaMA-Alpaca(LLaMA) | LoRA（预训练+微调）           | 7B       | [中文LLaMA&amp;Alpaca大语言模型词表扩充+预训练+指令精调](https://zhuanlan.zhihu.com/p/631360711)                                                                                                                            | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/chinese-llama-alpaca) |
-| LLaMA                       | QLoRA                         | 7B/65B   | [高效微调技术QLoRA实战，基于LLaMA-65B微调仅需48G显存，真香](https://zhuanlan.zhihu.com/p/636644164)                                                                                                                         | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/qlora)                |
-
-**[⬆ 一键返回目录](#目录)**
-
-### LLM微调技术原理
-
-对于普通大众来说，进行大模型的预训练或者全量微调遥不可及。由此，催生了各种参数高效微调技术，让科研人员或者普通开发者有机会尝试微调大模型。
-
-因此，该技术值得我们进行深入分析其背后的机理，本系列大体分七篇文章进行讲解。
-
-- [大模型参数高效微调技术原理综述（一）-背景、参数高效微调简介](https://zhuanlan.zhihu.com/p/635152813)
-- [大模型参数高效微调技术原理综述（二）-BitFit、Prefix Tuning、Prompt Tuning](https://zhuanlan.zhihu.com/p/635686756)
-- [大模型参数高效微调技术原理综述（三）-P-Tuning、P-Tuning v2](https://zhuanlan.zhihu.com/p/635848732)
-- [大模型参数高效微调技术原理综述（四）-Adapter Tuning及其变体](https://zhuanlan.zhihu.com/p/636038478)
-- [大模型参数高效微调技术原理综述（五）-LoRA、AdaLoRA、QLoRA](https://zhuanlan.zhihu.com/p/636215898)
-- [大模型参数高效微调技术原理综述（六）-MAM Adapter、UniPELT](https://zhuanlan.zhihu.com/p/636362246)
-- [大模型参数高效微调技术原理综述（七）-最佳实践、总结](https://zhuanlan.zhihu.com/p/649755252)
-
-### LLM微调实战
-
-下面给大家分享**大模型参数高效微调技术实战**，该系列主要针对 HuggingFace PEFT 框架支持的一些高效微调技术进行讲解。
-
-| 教程                                                                                                | 代码                                                                                                      | 框架             |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------- |
-| [大模型参数高效微调技术实战（一）-PEFT概述及环境搭建](https://zhuanlan.zhihu.com/p/651744834)          | N/A                                                                                                       | HuggingFace PEFT |
-| [大模型参数高效微调技术实战（二）-Prompt Tuning](https://zhuanlan.zhihu.com/p/646748939)               | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_prompt_tuning_clm.ipynb) | HuggingFace PEFT |
-| [大模型参数高效微调技术实战（三）-P-Tuning](https://zhuanlan.zhihu.com/p/646876256)                    | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_p_tuning_clm.ipynb)      | HuggingFace PEFT |
-| [大模型参数高效微调技术实战（四）-Prefix Tuning / P-Tuning v2](https://zhuanlan.zhihu.com/p/648156780) | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_p_tuning_v2_clm.ipynb)   | HuggingFace PEFT |
-| [大模型参数高效微调技术实战（五）-LoRA](https://zhuanlan.zhihu.com/p/649315197)                        | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_lora_clm.ipynb)          | HuggingFace PEFT |
-| [大模型参数高效微调技术实战（六）-IA3](https://zhuanlan.zhihu.com/p/649707359)                         | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_ia3_clm.ipynb)           | HuggingFace PEFT |
-| [大模型微调实战（七）-基于LoRA微调多模态大模型](https://zhuanlan.zhihu.com/p/670048482)       |     [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/multimodal/blip2_lora_int8_fine_tune.py) | HuggingFace PEFT |
-| [大模型微调实战（八）-使用INT8/FP4/NF4微调大模型](https://zhuanlan.zhihu.com/p/670116171)    |     [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/multimodal/finetune_bloom_bnb_peft.ipynb) | PEFT、bitsandbytes |
-
-
-
-
-**[⬆ 一键返回目录](#目录)**
 
 ### [LLM分布式训练并行技术](https://github.com/liguodongiot/llm-action/tree/main/docs/llm-base/distribution-parallelism)
 
@@ -115,7 +61,58 @@
 - [大模型分布式训练并行技术（八）-MOE并行](https://zhuanlan.zhihu.com/p/662518387)
 - [大模型分布式训练并行技术（九）-总结](https://zhuanlan.zhihu.com/p/667051845)
 
-**[⬆ 一键返回目录](#目录)**
+
+### 实战3：transformer模型构建实训
+
+本实训课程主要培养学生的模型训练能力，主要使用6B到65B的多个模型，从全量微调到高效微调（LoRA，QLoRA，P-Tuning v2），再到RLHF（基于人工反馈的强化学习）。
+
+| LLM                         | 预训练/SFT/RLHF...            | 参数     | 教程                                                                                                                                                                                                                     | 代码                                                                                     |
+| --------------------------- | ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| Alpaca                      | full fine-turning             | 7B       | [从0到1复现斯坦福羊驼（Stanford Alpaca 7B）](https://zhuanlan.zhihu.com/p/618321077)                                                                                                                                        | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/alpaca)               |
+| Alpaca(LLaMA)               | LoRA                          | 7B~65B   | 1.[足够惊艳，使用Alpaca-Lora基于LLaMA(7B)二十分钟完成微调，效果比肩斯坦福羊驼](https://zhuanlan.zhihu.com/p/619426866)<br>2. [使用 LoRA 技术对 LLaMA 65B 大模型进行微调及推理](https://zhuanlan.zhihu.com/p/632492604)    | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/alpaca-lora)          |
+| BELLE(LLaMA/Bloom)          | full fine-turning             | 7B       | 1.[基于LLaMA-7B/Bloomz-7B1-mt复现开源中文对话大模型BELLE及GPTQ量化](https://zhuanlan.zhihu.com/p/618876472) <br> 2. [BELLE(LLaMA-7B/Bloomz-7B1-mt)大模型使用GPTQ量化后推理性能测试](https://zhuanlan.zhihu.com/p/621128368) | N/A                                                                                      |
+| ChatGLM                     | LoRA                          | 6B       | [从0到1基于ChatGLM-6B使用LoRA进行参数高效微调](https://zhuanlan.zhihu.com/p/621793987)                                                                                                                                      | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/chatglm-lora)         |
+| ChatGLM                     | full fine-turning/P-Tuning v2 | 6B       | [使用DeepSpeed/P-Tuning v2对ChatGLM-6B进行微调](https://zhuanlan.zhihu.com/p/622351059)                                                                                                                                     | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/chatglm)              |
+| Vicuna(LLaMA)               | full fine-turning             | 7B       | [Vicuna训练实战](https://zhuanlan.zhihu.com/p/624012908)                                                                                                                            | N/A                                                                                      |
+| OPT                         | RLHF                          | 0.1B~66B | 1.[使用RLHF训练DeepSpeed Chat](https://zhuanlan.zhihu.com/p/626159553) <br> 2. [一键式 RLHF 训练 DeepSpeed Chat（二）：实践篇](https://zhuanlan.zhihu.com/p/626214655)                                 | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/deepspeedchat)        |
+| Chinese-LLaMA-Alpaca(LLaMA) | LoRA（预训练+微调）           | 7B       | [Alpaca模型词表扩充和预训练](https://zhuanlan.zhihu.com/p/631360711)                                                                                                                            | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/chinese-llama-alpaca) |
+| LLaMA                       | QLoRA                         | 7B/65B   | [高效微调技术QLoRA实战](https://zhuanlan.zhihu.com/p/636644164)                                                                                                                         | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/qlora)                |
+
+
+### 课程4：大模型的优化与微调
+
+对于普通大众来说，进行大模型的预训练或者全量微调遥不可及。由此，催生了各种参数高效微调技术，让科研人员或者普通开发者有机会尝试微调大模型。
+
+因此，该技术值得我们进行深入分析其背后的机理，本课程共包含7个部分，24个课时。
+
+- [大语言模型的参数微调（一）-背景、参数高效微调简介](https://zhuanlan.zhihu.com/p/635152813)
+- [大语言模型的参数微调（二）-BitFit、Prefix Tuning、Prompt Tuning](https://zhuanlan.zhihu.com/p/635686756)
+- [大语言模型的参数微调（三）-P-Tuning、P-Tuning v2](https://zhuanlan.zhihu.com/p/635848732)
+- [大语言模型的参数微调（四）-Adapter Tuning及其变体](https://zhuanlan.zhihu.com/p/636038478)
+- [大语言模型的参数微调（五）-LoRA、AdaLoRA、QLoRA](https://zhuanlan.zhihu.com/p/636215898)
+- [大语言模型的参数微调（六）-MAM Adapter、UniPELT](https://zhuanlan.zhihu.com/p/636362246)
+- [大语言模型的参数微调（七）-最佳实践、总结](https://zhuanlan.zhihu.com/p/649755252)
+
+### 实战4：模型优化微调实训
+
+****大语言模型的参数微调实战**，本实训课主要针对 HuggingFace PEFT 框架支持的一些高效微调技术进行讲解。
+
+| 实训内容                                                                                                | 代码                                                                                                      | 框架             |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------- |
+| [大语言模型的参数微调实战（一）-PEFT环境搭建](https://zhuanlan.zhihu.com/p/651744834)          | N/A                                                                                                       | HuggingFace PEFT |
+| [大语言模型的参数微调实战（二）-Prompt Tuning](https://zhuanlan.zhihu.com/p/646748939)               | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_prompt_tuning_clm.ipynb) | HuggingFace PEFT |
+| [大语言模型的参数微调实战（三）-P-Tuning](https://zhuanlan.zhihu.com/p/646876256)                    | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_p_tuning_clm.ipynb)      | HuggingFace PEFT |
+| [大语言模型的参数微调实战（四）-Prefix Tuning / P-Tuning v2](https://zhuanlan.zhihu.com/p/648156780) | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_p_tuning_v2_clm.ipynb)   | HuggingFace PEFT |
+| [大语言模型的参数微调实战（五）-LoRA](https://zhuanlan.zhihu.com/p/649315197)                        | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_lora_clm.ipynb)          | HuggingFace PEFT |
+| [大语言模型的参数微调实战（六）-IA3](https://zhuanlan.zhihu.com/p/649707359)                         | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_ia3_clm.ipynb)           | HuggingFace PEFT |
+| [大语言模型的参数微调实战（七）-基于LoRA微调多模态大模型](https://zhuanlan.zhihu.com/p/670048482)       |     [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/multimodal/blip2_lora_int8_fine_tune.py) | HuggingFace PEFT |
+| [大语言模型的参数微调实战（八）-使用INT8/FP4/NF4微调大模型](https://zhuanlan.zhihu.com/p/670116171)    |     [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/multimodal/finetune_bloom_bnb_peft.ipynb) | PEFT、bitsandbytes |
+
+
+
+
+
+
 
 ### 分布式AI框架
 
